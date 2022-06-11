@@ -30,6 +30,10 @@ def text_tokenizer(text: str):
     clened = cleaning(text)
     tokens = word_tokenize(clened)
     without_stopwords = stopword_rem(tokens)
+    # without_stopwords = without_stopwords.
+    temp_list = []
+    for i in without_stopwords:
+        if i != 'said':
+            temp_list.append(i)
 
-    return [prepare_data(w) for w in without_stopwords if len(w) > 3]
-
+    return [prepare_data(w) for w in temp_list if len(w) > 3]
